@@ -6,10 +6,14 @@ if(isset($_REQUEST["action"])){
 else {
     $action="bienvenue";
 }
-$_SESSION['id'] ="";
-echo $_SESSION['id'] ;
+if (isset($_SESSION['id'])){
+    $_SESSION['id'] ="";
+}
+else {
+    print_r( $_SESSION['id'] );
+}
 
-echo "<script> console.log('".$_SESSION["id"]."') </script>";
+
 
 switch ($action){ 
     case "login":
