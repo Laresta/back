@@ -7,6 +7,5 @@ ob_start();
 <?php
      $contenu = ob_get_clean();
      $titre = "Bienvenue";
-     $menu = "";
      require "template.php";
 ?>

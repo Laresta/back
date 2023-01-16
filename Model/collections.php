@@ -20,9 +20,9 @@ function suppr_collection($con, $id){
     return $requete -> rowCount();
 }
 
-function add_collection($con, $titre){
-    $requete = $con -> prepare("insert into collection values (null, ?)");
-    $ok = $requete -> execute([$titre]);
+function add_collection($con, $titre , $idu){
+    $requete = $con -> prepare("insert into collection values (null, ?,?)");
+    $ok = $requete -> execute([$idu , $titre]);
     if (!$ok) {
         bdd_erreur($requete);
     }

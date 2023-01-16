@@ -2,8 +2,8 @@
     ob_start();
     $cnx =bdd_connexion();
     $session=$_SESSION['id'];
-    echo "<p>$session</p>";
-    if(!is_null($cnx))$collections = get_collections($cnx, $_SESSION["id"]);
+    
+    if(!is_null($cnx))$collections = get_collections($cnx, $session);
     
     foreach($collections as $collection){
         echo "<p>

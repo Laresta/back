@@ -7,7 +7,7 @@
     <title><?=$titre?></title>
 </head>
 <body>
-    <?=$menu?>
+    <?= require "menu.php" ;?>
     <?=$contenu?>
 </body>
 </html>

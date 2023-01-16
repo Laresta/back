@@ -6,12 +6,10 @@ if(isset($_REQUEST["action"])){
 else {
     $action="bienvenue";
 }
-if (isset($_SESSION['id'])){
+if (!isset($_SESSION['id'])){
     $_SESSION['id'] ="";
 }
-else {
-    print_r( $_SESSION['id'] );
-}
+
 
 
 
