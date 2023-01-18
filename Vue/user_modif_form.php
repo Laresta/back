@@ -3,16 +3,16 @@
         ob_start();
        
         $cnx = bdd_connexion();
-        $item = get_user($cnx, $iduser);
+        $user = get_user($cnx, $iduser);
         ?>
         <form action="index.php" method="post" onsubmit="return verifdefault()">
-            <p> ancien login : <?=$item[0]->titre?></p>
+            <p> ancien login : <?=$user[0]->titre?></p>
             <label for="titre">nouveau titre: </label>
-            <input type="text" id="titre" name="login" value="<?=$item[0]->titre?>" />
+            <input type="text" id="titre" name="login" value="<?=$user[0]->titre?>" />
             <br>
-            <p> ancienne mdp: <?=$item[0]->description?></p>
+            <p> ancienne mdp: <?=$user[0]->description?></p>
             <label for="description">nouvelle description: </label>
-            <input type="text" name="description" id="mdp" value="<?=$item[0]->description?>"/>
+            <input type="text" name="description" id="mdp" value="<?=$user[0]->description?>"/>
             <br>
             <?php
             echo "
@@ -28,11 +28,11 @@
             let fields = {
                     titre: {
                         current: document.getElementById("titre").value,
-                        original: <?= json_encode($item[0]->titre) ?>
+                        original: <?= json_encode($user[0]->login) ?>
                     },
                     desc: {
                         current: document.getElementById("desc").value,
-                        original: <?= json_encode($item[0]->description) ?>
+                        original: <?= json_encode($user[0]->mdp) ?>
                     },
                 };
 
