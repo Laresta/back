@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +8,9 @@
     <title><?=$titre?></title>
 </head>
 <body>
-    <?= require "menu.php"?>
+<?php
+require "menu.php"
+?>
     <?=$contenu?>
 </body>
 </html>

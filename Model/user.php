@@ -22,6 +22,16 @@ function get_users($connect){
     return $requete -> fetchAll(PDO::FETCH_CLASS);  
 }
 
+function get_user($cnx , $id){
+    $requete = $connect -> prepare("Select * from user where id=?");
+    $ok = $requete -> execute([$id]);
+    if (!$ok) {
+        bdd_erreur($requete);
+        return null;
+    }
+    return $requete -> fetchAll(PDO::FETCH_CLASS);  
+}
+
 function add_user(){
 
 }

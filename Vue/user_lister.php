@@ -9,8 +9,8 @@ if(!is_null($cnx)){
 
 foreach($users as $user){
     echo "$user->login
-    <a href='index.php?action='><button>modifier l'user</button></a>
-    <a href='index.php?action='><button>supprimer l'user</button></a>
+    <a href='index.php?action=modifier_form_user?iduser=$user->id'><button>modifier l'user</button></a>
+    <a href='index.php?action=supprimer_user'><button>supprimer l'user</button></a>
     <br>";
 }
 
