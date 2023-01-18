@@ -24,7 +24,12 @@ switch ($action){
         require "Controllers/user_connection.php";
         break;
     case "deconnexion":
-        session_destroy();
+        require "Controllers/user_deconnect.php";
+        break;
+    
+    case "listage_user":
+        require_once "Model/user.php"; 
+        require "Vue/user_lister.php";
         break;
     case "creation_de_compte":
     case "suppression_user":

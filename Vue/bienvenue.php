@@ -1,8 +1,15 @@
 <?php
 ob_start();
+$droit = $_SESSION["droits"];
+if ($droit == 1){
+     $message = "admin!";
+}
+else {
+     $message = "user!";
+}
 ?>
 
-<p> Bienvenue </p>
+<p> Bienvenue <?= $message ?></p>
 
 <?php
      $contenu = ob_get_clean();

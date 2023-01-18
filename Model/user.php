@@ -12,4 +12,25 @@ function chk_user($connect , $login , $pass){
     return $requete -> fetchAll(PDO::FETCH_CLASS);    
 }
 
+function get_users($connect){
+    $requete = $connect -> prepare("Select * from user where droits=2");
+    $ok = $requete -> execute();
+    if (!$ok) {
+        bdd_erreur($requete);
+        return null;
+    }
+    return $requete -> fetchAll(PDO::FETCH_CLASS);  
+}
+
+function add_user(){
+
+}
+
+function suppr_user(){
+
+}
+
+function modif_user(){
+
+}
 ?>

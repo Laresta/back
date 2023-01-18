@@ -15,7 +15,6 @@
     if(!is_null($cnx)){
         $items = get_items($cnx , $idc);
     }
-    echo "<h1> </h1>";
     foreach($items as $item) {
         echo "<p> $item->titre : $item->description </p>
         <a href='index.php?action=suppression_validate_item&&iditem=$item->id&&idcollec=$idc'><button>Suppr</button></a>
