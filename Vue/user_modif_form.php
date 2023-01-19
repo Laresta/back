@@ -3,48 +3,23 @@
         $cnx = bdd_connexion();
         $user = get_user($cnx, $iduser);
         ?>
-        <form action="index.php" method="post" onsubmit="return verifdefault()">
-            <p> ancien login : <?=$user[0]->titre?></p>
-            <label for="titre">nouveau titre: </label>
-            <input type="text" id="titre" name="login" value="<?=$user[0]->titre?>" />
+        <form action="index.php" method="post">
+            <p> ancien login : <?=$user[0]->login?></p>
+            <label for="titre">nouveau login: </label>
+            <input type="text" id="login" name="login"/>
             <br>
-            <p> ancienne mdp: <?=$user[0]->description?></p>
-            <label for="description">nouvelle description: </label>
-            <input type="text" name="description" id="mdp" value="<?=$user[0]->description?>"/>
+            <label for="description">nouvelle mdp: </label>
+            <input type="password" name="pass" id="mdp"/>
             <br>
             <?php
             echo "
-            <input type='hidden' value='$iditem' name='iduser'/>"; 
+            <input type='hidden' value='$iduser' name='id_user'/>"; 
             ?>
             <input type="hidden" name="action" value="modifier_user">
             <br>
             <input type="submit" value="Modifier"/>
         </form>
     </body>
-    <script>
-        function verifdefault(){
-            let fields = {
-                    titre: {
-                        current: document.getElementById("titre").value,
-                        original: <?= json_encode($user[0]->login) ?>
-                    },
-                    desc: {
-                        current: document.getElementById("desc").value,
-                        original: <?= json_encode($user[0]->mdp) ?>
-                    },
-                };
-
-                let changed = false;
-                for (let field in fields) {
-                    if (fields[field].current != fields[field].original) {
-                        changed = true;
-                        break;
-                    }
-                }
-                return changed;
-        }
-    </script>
-
     <?php
     $contenu = ob_get_clean();
     $titre = "Formulaire de modification d'user";

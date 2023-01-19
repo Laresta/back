@@ -9,7 +9,7 @@ if(!is_null($cnx)){
 
 foreach($users as $user){
     echo "$user->login
-    <a href='index.php?action=modifier_form_user?iduser=$user->id'><button>modifier l'user</button></a>
+    <a href='index.php?action=modifier_form_user&&id_user=$user->id'><button>modifier l'user</button></a>
     <a href='index.php?action=suppression_validate_user&&id_user=$user->id'><button>supprimer l'user</button></a>
     <br>";
 }

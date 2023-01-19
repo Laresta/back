@@ -23,7 +23,7 @@ function get_users($connect){
 }
 
 function get_user($cnx , $id){
-    $requete = $connect -> prepare("Select * from user where id=?");
+    $requete = $cnx -> prepare("Select * from user where id=?");
     $ok = $requete -> execute([$id]);
     if (!$ok) {
         bdd_erreur($requete);
@@ -55,7 +55,12 @@ function suppr_user($con , $id){
     return $requete -> rowCount();
 }
 
-function modif_user(){
-
+function modif_user($con , $id , $login , $pass){
+    $requete = $con -> prepare("update user set login = ? ,  pass = ?  where id = ?");
+    $ok = $requete -> execute([$login , $pass , $id]);
+    if (!$ok) {
+        bdd_erreur($requete);
+    }
+    return $requete -> rowCount();
 }
 ?>

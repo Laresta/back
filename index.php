@@ -41,10 +41,16 @@ switch ($action){
         require "Controllers/user_ajouter.php";
         break;
     case "modifier_form_user":
+        $iduser = $_GET["id_user"];
         require "Model/user.php"; 
         require "Vue/user_modif_form.php";
         break;
     case "modifier_user":
+        $login = $_POST["login"];
+        $pass = $_POST["pass"];
+        $iduser = $_POST["id_user"];
+        require "Model/user.php"; 
+        require "Controllers/user_modifier.php";
         break;
     case "suppression_validate_user":
         $iduser = $_GET["id_user"];
