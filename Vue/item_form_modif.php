@@ -26,8 +26,12 @@
             <input type="submit" value="Modifier"/>
         </form>
     </body>
+    <!-- Ce script permet d'éviter des bugs de modifications en empechant le formulaire de s'envoyer si il y'a aucune modification. 
+    Car si je ne fait pas de verification , même si il ya pas d'erreur dans la requete SQL , cela renverra sur la page d'erreur-->
     <script>
         function verifdefault(){
+            /*ici je met les informations dans un objet et dans les attribut de l'objet , je fait un autre objet afin de retenir les informations 
+            precedentes et nouvelles du form */
             let fields = {
                     titre: {
                         current: document.getElementById("titre").value,
@@ -42,7 +46,7 @@
                         original: <?= json_encode($item[0]->creation) ?>
                     }
                 };
-
+              /*Ici je vais verifier pour chaque attribut de l objet si il y a un changement*/
                 let changed = false;
                 for (let field in fields) {
                     if (fields[field].current != fields[field].original) {
