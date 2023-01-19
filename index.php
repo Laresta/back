@@ -4,8 +4,9 @@ if(isset($_REQUEST["action"])){
     $action = $_REQUEST["action"];
 }
 else {
-    $action="bienvenue";
+        $action="login";
 }
+    
 if (!isset($_SESSION['id'])){
     $_SESSION['id'] ="";
 }
