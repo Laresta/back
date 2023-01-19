@@ -5,6 +5,7 @@ if (isset($_SESSION["droits"])){
 else{
     $droit = 0;
 }
+
 if ($droit == 2 ){
 ?>
     <ul>
@@ -20,6 +21,8 @@ elseif ($droit == 1)
     </ul>
 <?php
 }
-else if ($droit == 0)
+else if ($droit == 0) {
 ?>
-    <p> Connectez-vous pour avoir accés au site ! </p>
+    <p> Connectez-vous pour avoir accés au site !! </p> 
+
+<?php } ?>

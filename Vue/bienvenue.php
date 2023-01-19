@@ -1,11 +1,14 @@
 <?php
 ob_start();
-$droit = $_SESSION["droits"];
+$droit = @$_SESSION["droits"];
 if ($droit == 1){
      $message = "admin!";
 }
-else {
+else if ($droit = 2){
      $message = "user!";
+}
+else{
+     $message = ", pour avoir accés au site , connectez-vous";
 }
 ?>
 

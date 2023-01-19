@@ -1,6 +1,7 @@
 <?php
 ob_start();
 ?>
+<br>
 <form action="index.php" method="post">
     <label for="login"> Votre Login</label>
     <input type="text" name="login">

@@ -9,9 +9,9 @@ else {
 if (!isset($_SESSION['id'])){
     $_SESSION['id'] ="";
 }
-
-
-
+if (!isset($_SESSION['droits'])){
+    $_SESSION['droits'] = 0;
+}
 
 switch ($action){ 
     case "login":
@@ -25,15 +25,37 @@ switch ($action){
         break;
     case "deconnexion":
         require "Controllers/user_deconnect.php";
-        break;
-    
+        break;   
     case "listage_user":
         require_once "Model/user.php"; 
         require "Vue/user_lister.php";
         break;
-    case "creation_de_compte":
+    case "add_form_user";
+        require "Vue/add_form_user.php";
+        break;
+    case "creation_user":
+        $login = $_POST["login"];
+        $pass = $_POST["pass"];
+        $droit = $_POST["droit"];
+        require_once "Model/user.php"; 
+        require "Controllers/user_ajouter.php";
+        break;
+    case "modifier_form_user":
+        require "Model/user.php"; 
+        require "Vue/user_modif_form.php";
+        break;
+    case "modifier_user":
+        break;
+    case "suppression_validate_user":
+        $iduser = $_GET["id_user"];
+        require "Vue/user_confirm_supprimer.php";
+        break;
     case "suppression_user":
-    case "modification_user":
+        require "Model/user.php"; 
+        $iduser = $_GET["id_user"];
+        require "Controllers/user_supprimer.php";
+        break;
+    
 
     case "creation_form_collection":
         require "Vue/collection_form_add.php";

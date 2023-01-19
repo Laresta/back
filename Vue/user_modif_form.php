@@ -1,7 +1,5 @@
-
         <?php
-        ob_start();
-       
+        ob_start();    
         $cnx = bdd_connexion();
         $user = get_user($cnx, $iduser);
         ?>
@@ -50,6 +48,5 @@
     <?php
     $contenu = ob_get_clean();
     $titre = "Formulaire de modification d'user";
-    $menu ="";
     require "template.php";
     ?>

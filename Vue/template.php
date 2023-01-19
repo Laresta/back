@@ -9,7 +9,7 @@
 </head>
 <body>
 <?php
-require "menu.php"
+require "menu.php";
 ?>
     <?=$contenu?>
 </body>

@@ -32,12 +32,27 @@ function get_user($cnx , $id){
     return $requete -> fetchAll(PDO::FETCH_CLASS);  
 }
 
-function add_user(){
-
+function add_user($connect , $login , $pass , $droit){
+    $requete = $connect -> prepare("insert into user values (null, ? , ? , ?)");
+    $ok = $requete -> execute([$login , $pass , $droit]);
+    if (!$ok) {
+        bdd_erreur($requete);
+    }
+    return $requete -> rowCount();
 }
 
-function suppr_user(){
-
+function suppr_user($con , $id){
+    $requete = $con -> prepare("Delete from collection where idu =?");
+    $ok = $requete -> execute([$id]);
+    if (!$ok) {
+        bdd_erreur($requete);
+    }
+    $requete = $con -> prepare("Delete from user where id =?");
+    $ok = $requete -> execute([$id]);
+    if (!$ok) {
+        bdd_erreur($requete);
+    }
+    return $requete -> rowCount();
 }
 
 function modif_user(){
