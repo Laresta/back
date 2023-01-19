@@ -3,6 +3,9 @@ session_start();
 if(isset($_REQUEST["action"])){
     $action = $_REQUEST["action"];
 }
+/* Ici j'ai eu un probleme a gerer les utilisateurs deja connecté quand on reviens sur index.php sans action
+J'ai donc pris la decision un peu draconienne de forcer de se reconnecter a chaque fois. Je pense que pour regler ce soucis il faudrai utiliser les cookies 
+mais cela va beaucoup plus loin que le sujet initial*/
 else {
         $action="login";
 }
